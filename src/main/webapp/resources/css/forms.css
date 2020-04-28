@@ -1,0 +1,59 @@
+.grid-form{
+    display:grid;
+    grid-template-areas: "."
+    "form"
+    ".";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto 1fr;
+    height: 100%;
+    padding: 10px;
+}
+.form{
+    grid-area: form;
+    width: 500px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    padding: 2rem;
+    background: #ffffff;
+    box-shadow: 0 10px 40px -14px rgba(0, 0, 0, 0.25);
+}
+.form-header{
+    text-align: center;
+    margin-bottom : 2rem;
+}
+.form-element{
+    margin-bottom: 1rem;
+
+}
+.form-image img{
+    float:left;
+    border-radius: 10px;
+    width: 20%;
+}
+.form-input{
+    background: #fafafa;
+    border: 1px solid #eeeeee;
+    padding: 12px;
+    width: 100%;
+
+}
+.form-element label{
+    float: left;
+    width: 150px;
+}
+.form-button {
+    background-color: rgba(0, 191, 255, 0.9);
+    border: 1px solid #ddd;
+    color: white;
+    padding: 10px;
+    width: 100%;
+}
+.form-button:hover {
+    background-color: rgba(0, 191, 280, 1);
+}
+.form-button.delete{
+    background-color: rgba(244, 67, 54, 0.9);
+}
+.form-button.delete:hover {
+    background-color: rgba(280, 67, 54, 1);
+}

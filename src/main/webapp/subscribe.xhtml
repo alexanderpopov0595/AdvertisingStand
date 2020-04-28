@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+    <title>Advertising Stand For Onlinestore</title>
+    <meta http-equiv="Content-Type"	content="application/xhtml+xml; charset=UTF-8" />
+    <link rel="stylesheet" href="#{request.contextPath}/resources/css/style.css" />
+    <link rel="stylesheet" href="#{request.contextPath}/resources/css/forms.css" />
+</h:head>
+<h:body>
+    <div class="main-grid">
+        <div class="header">
+            <h1>Advert Stand</h1>
+            <p>for onlinestore</p>
+        </div>
+        <div class="black">
+            <a href="http://localhost:8081/Onlinestore/">Go to onlinestore</a>
+        </div>
+        <div class="grid-form">
+            <h:form class="form">
+                <div class="form-header">
+                    <label>Email Address:</label>
+                    <h:inputText a:type="hidden"  value="#{subscribeBean.email.id}" required="true"/>
+                    <h:inputText a:type="email" class="form-input" label="Email address"  value="#{subscribeBean.email.email}" required="true"/>
+                </div>
+                <div class="form-header">
+                    <label>Email password:</label>
+                    <h:inputText label="Email password"  class="form-input" value="#{subscribeBean.email.password}" required="true"/>
+                </div>
+                <div class="form-header">
+                    <h:commandButton value="Subscribe" class="form-button" action="#{subscribeBean.subscribe}" />
+                    <h:commandButton value="Unsubscribe" class="form-button delete" action="#{subscribeBean.unsubscribe}" />
+                </div>
+            </h:form>
+        </div>
+    </div>
+</h:body>
+</html>
