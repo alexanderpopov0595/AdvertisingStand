@@ -1,9 +1,12 @@
+
+
 //web socket address
 var webSocket = new WebSocket("ws://localhost:8080/AdvertisingStand/home");
 //behavior on message event
 webSocket.onmessage = function(event){
+    alert();
     //get gallery div
-    var gallery=document.getElementsByClassName("gallery")[0];
+   var gallery=document.getElementsByClassName("gallery")[0];
     //clear div container
     gallery.innerHTML="";
     // var json='[{"id": 1,"name": "Cheap electric", "price": 100}, {"id": 2, "name": "Good electric", "price": 300}]';
@@ -42,4 +45,8 @@ webSocket.onmessage = function(event){
         //append all to gallery
         gallery.appendChild(table);
     }
+    sessionStorage.setItem("gallery", gallery);
+    gallery=document.getElementsByClassName("gallery")[0];
+    webSocket.send(gallery);
 }
+

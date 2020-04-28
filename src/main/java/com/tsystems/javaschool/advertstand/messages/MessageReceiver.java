@@ -4,6 +4,7 @@ import com.tsystems.javaschool.advertstand.controller.HomeBean;
 import org.apache.log4j.Logger;
 import org.jboss.ejb3.annotation.ResourceAdapter;
 
+import javax.annotation.Resource;
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.MessageDriven;
 import javax.inject.Inject;
