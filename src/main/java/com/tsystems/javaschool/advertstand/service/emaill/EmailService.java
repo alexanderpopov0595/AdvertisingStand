@@ -1,7 +1,6 @@
 package com.tsystems.javaschool.advertstand.service.emaill;
 
 import com.tsystems.javaschool.advertstand.domain.Email;
-
 import java.util.List;
 
 /**

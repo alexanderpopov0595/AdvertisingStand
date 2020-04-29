@@ -34,29 +34,14 @@ public class HomeBean implements Serializable {
     private MailService mailService;
 
     /**
-     * Message object stores recieved message before the new one comes
-     */
-    private static String message;
-
-    public HomeBean(){
-
-    }
-
-
-    /**
      * Method opens web socket connection and sends message to frontend
      * @param peer -  connected user
      */
-    /*
+
     @OnOpen
     public void onOpen (Session peer)  {
        sessions.add(peer);
-        try {
-            peer.getBasicRemote().sendText(this.message);
-        } catch (Exception e) {
-            logger.error("Error while sending stored message to web socket: "+e.getMessage());
-        }
-    }*/
+    }
 
     /**
      * Method closes connection for current user
@@ -67,21 +52,20 @@ public class HomeBean implements Serializable {
         sessions.remove(peer);
     }
 
-
-
+    /**
+     * Method sends new message to all emails
+     * @param message
+     */
     @OnMessage
-    public void textMessage(Session session, String message) {
-        logger.info(message);
+    public void textMessage(Session peer, String message) {
         mailService.sendEmail(message);
     }
-
 
     /**
      * Method saves new received jms message and then sends this message to all open web sockets
      * @param message
      */
     public void sendMessageToSocket(String message)  {
-        this.message = message;
         for (Session session : sessions) {
             if (session.isOpen()) {
                 try {

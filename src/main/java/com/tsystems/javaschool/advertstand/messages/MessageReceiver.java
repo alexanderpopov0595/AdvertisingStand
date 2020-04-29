@@ -3,14 +3,11 @@ package com.tsystems.javaschool.advertstand.messages;
 import com.tsystems.javaschool.advertstand.controller.HomeBean;
 import org.apache.log4j.Logger;
 import org.jboss.ejb3.annotation.ResourceAdapter;
-
-import javax.annotation.Resource;
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.MessageDriven;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.jms.*;
-import java.io.IOException;
 
 /**
  * Class is responsible for receiving jms messages from topic and pushing them to endpoint
