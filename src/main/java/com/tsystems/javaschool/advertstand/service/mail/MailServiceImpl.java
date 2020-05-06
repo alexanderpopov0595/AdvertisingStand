@@ -13,19 +13,35 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Properties;
 
+/**
+ * Implementation of mail service
+ */
 @Stateless
 public class MailServiceImpl implements MailService {
 
     private static final Logger logger = Logger.getLogger(MailServiceImpl.class);
 
+    /**
+     * Injected java mail session resource
+     */
     @Resource(name = "java:jboss/mail/gmail")
     private Session session;
 
+    /**
+     * Injected email service
+     */
     @EJB
     private EmailService emailService;
 
+    /**
+     * Java mail properties
+     */
     private Properties properties;
 
+    /**
+     * Method loads java mail properties
+     * @throws IOException
+     */
     @PostConstruct
     public void setUp() throws IOException {
         InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("email.properties");
@@ -33,6 +49,10 @@ public class MailServiceImpl implements MailService {
         properties.load(inputStream);
     }
 
+    /**
+     * Method loads all subscribers, build up message and send it to all emails
+     * @param htmlMessage
+     */
     @Asynchronous
     @Lock(LockType.READ)
     public void sendEmail(String htmlMessage) {

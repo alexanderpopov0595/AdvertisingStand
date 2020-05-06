@@ -7,13 +7,22 @@ import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.websocket.server.ServerEndpoint;
 
+/**
+ * Represents a controller which is responsible for getting email's information from form
+ */
 @ManagedBean
 @ApplicationScoped
 @ServerEndpoint(value = "/subscribe")
 public class SubscribeBean {
 
+    /**
+     * Email object
+     */
     private Email email;
 
+    /**
+     * Injected email service
+     */
     @EJB
     private EmailService emailService;
 
@@ -21,10 +30,17 @@ public class SubscribeBean {
         email=new Email();
     }
 
+    /**
+     * Method adds email to database
+     */
     public void subscribe(){
         emailService.addEmail(email);
         email=new Email();
     }
+
+    /**
+     * Method deletes email from database
+     */
     public void unsubscribe(){
         emailService.deleteEmail(email);
     }

@@ -22,14 +22,14 @@ public class MessageReceiver implements MessageListener {
 
     private static final org.apache.log4j.Logger logger = Logger.getLogger(MessageReceiver.class);
 
-    public MessageReceiver() {
-
-    }
-
     /**
      * Injected endpoint to push jms messages in
      */
     private HomeBean endpoint;
+
+    public MessageReceiver(){
+
+    }
 
     @Inject
     public MessageReceiver(HomeBean endpoint) {

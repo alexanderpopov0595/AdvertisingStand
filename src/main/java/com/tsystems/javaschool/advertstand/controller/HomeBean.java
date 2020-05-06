@@ -37,7 +37,6 @@ public class HomeBean implements Serializable {
      * Method opens web socket connection and sends message to frontend
      * @param peer -  connected user
      */
-
     @OnOpen
     public void onOpen (Session peer)  {
        sessions.add(peer);
@@ -62,7 +61,7 @@ public class HomeBean implements Serializable {
     }
 
     /**
-     * Method saves new received jms message and then sends this message to all open web sockets
+     * Method sends new received jms message to all open web sockets
      * @param message
      */
     public void sendMessageToSocket(String message)  {
